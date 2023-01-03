@@ -33,13 +33,20 @@ alias vi "nvim"
 alias vim "nvim"
 alias g git
 
+  #exa replace ls
 if type -q exa
   alias ll "exa -l -g --icons"
   alias lla "ll -a"
 end
 
-
+  # Chinese NPM Source
 alias cnpm "npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
 --userconfig=$HOME/.cnpmrc"
+
+# Key Bindings
+ # peco
+bind \cr peco_select_history # Bind for peco select history to Ctrl+R
+ # vim-like
+bind \cl forward-char
