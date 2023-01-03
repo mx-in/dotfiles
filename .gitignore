@@ -6,6 +6,7 @@
 !.gitignore
 !alacritty/**
 !fish/**
+!git/**
 !karabiner/**
 !lf/**
 !nvim/**

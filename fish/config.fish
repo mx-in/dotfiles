@@ -18,6 +18,15 @@ set -x LANG en_US.UTF-8
 # Editor
 set -gx EDITOR nvim
 
+# Git Configuration
+set GLOBAL_GIT_CONFIG_PATH $HOME/.gitconfig
+set GIT_CONFIG_PATH $HOME/.config/git/gitconfig 
+if test ! -e $GLOBAL_GIT_CONFIG_PATH
+    echo "not exist"
+    ln -s $HOME/.config/git/gitconfig $HOME/.gitconfig
+end
+
+
 # Aliases
 alias vi "nvim"
 alias vim "nvim"
@@ -26,6 +35,7 @@ if type -q exa
   alias ll "exa -l -g --icons"
   alias lla "ll -a"
 end
+
 
 alias cnpm "npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
