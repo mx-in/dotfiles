@@ -8,7 +8,33 @@
 	ignorecase = false
 
 [alias]
-
+    a=add
+    aa=add --all
+    b=branch
+    ba=branch -a
+    bd=branch -d
+    c=commit -v
+    cf=config --list
+    d=diff
+    f=fetch
+    fo=fetch origin
+    lo=log --oneline --decorate
+    lg=log --stat
+    lgp=log --stat -p
+    lgg=git log --graph
+    lol="log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+    lols=lol --stat
+    log='log --oneline --decorate --graph --all'
+    st=status
+    ss=st -s
+    p=push
+    m=merge
+    pl=pull
+    rbs=rebase
+    pr=pull --rebase
+    co=checkout
+    hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+    df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
 [color]
     status = auto
     diff = auto

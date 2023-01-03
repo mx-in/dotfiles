@@ -30,6 +30,7 @@ end
 # Aliases
 alias vi "nvim"
 alias vim "nvim"
+alias g git
 
 if type -q exa
   alias ll "exa -l -g --icons"
