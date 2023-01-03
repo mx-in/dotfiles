@@ -48,5 +48,7 @@ alias cnpm "npm --registry=https://registry.npm.taobao.org \
 # Key Bindings
  # peco
 bind \cr peco_select_history # Bind for peco select history to Ctrl+R
+
  # vim-like
-bind \cl forward-char
+ # command + k not working after this
+#bind \cl forward-char
