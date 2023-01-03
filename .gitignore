@@ -5,6 +5,7 @@
 # Sync files
 !.gitignore
 !alacritty/**
+!bin/**
 !fish/**
 !git/**
 !karabiner/**

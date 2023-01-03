@@ -11,6 +11,7 @@ zoxide init fish | source
 
 # Flutter
 set -gx PATH $HOME/.flutter/bin $PATH
+set -gx PATH $HOME/.config/bin $PATH
 
 # Language
 set -x LANG en_US.UTF-8
