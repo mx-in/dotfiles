@@ -65,6 +65,9 @@ key_bindings:
   - { key: T, mods: Command|Shift, chars: "\x02\x21" }
   # Type <escape>:w<enter> to save neovim
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
+  # Open lazy git(<C-t> g), config in tmux.conf
+  - { key: G, mods: Command, chars: "\x02\x67" }
+
 
 #rose-pine
 colors:
