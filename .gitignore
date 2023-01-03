@@ -1,0 +1,13 @@
+*/**/*
+
+.DS_Store
+
+# Sync files
+!.gitignore
+!alacritty/**
+!fish/**
+!karabiner/**
+!lf/**
+!nvim/**
+!raycast/**
+!tmux/**
