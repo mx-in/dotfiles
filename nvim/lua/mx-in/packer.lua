@@ -14,11 +14,9 @@ return require('packer').startup(function(use)
     }
     use { "nvim-telescope/telescope-file-browser.nvim" }
 
-
     use({ 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
     use('nvim-treesitter/playground')
     use('mbbill/undotree')
-
     use('tpope/vim-fugitive')
     use('dinhhuy258/git.nvim')
     use('lewis6991/gitsigns.nvim')
@@ -68,23 +66,19 @@ return require('packer').startup(function(use)
         end
     })
 
-
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
     use 'windwp/nvim-ts-autotag'
     use 'nvim-tree/nvim-web-devicons'
-
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'MunifTanjim/prettier.nvim'
-
     use 'folke/zen-mode.nvim'
-
     use { 'iamcco/markdown-preview.nvim' }
-
     use 'norcalli/nvim-colorizer.lua'
-
     use 'mhinz/vim-startify'
+
+    use 'github/copilot.vim'
 
 end)
