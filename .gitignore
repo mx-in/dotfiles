@@ -8,8 +8,6 @@
 !bin/**
 !fish/**
 !git/**
-!karabiner/**
 !lf/**
 !nvim/**
-!raycast/**
 !tmux/**
