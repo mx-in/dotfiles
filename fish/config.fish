@@ -8,6 +8,13 @@ fish_config theme choose "Rosé Pine"
 starship init fish | source
 zoxide init fish | source
 
+function proxy 
+    set -x -g https_proxy http://127.0.0.1:6152;
+    set -x -g http_proxy http://127.0.0.1:6152;
+    set -x -g all_proxy socks5://127.0.0.1:6153
+end
+proxy
+
 
 # Flutter
 set -gx PATH $HOME/.flutter/bin $PATH
