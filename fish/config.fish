@@ -19,10 +19,8 @@ proxy
 # Flutter
 set -gx PATH $HOME/.flutter/bin $PATH
 set -gx PATH $HOME/.config/bin $PATH
-
 # Language
 set -x LANG en_US.UTF-8
-
 # Editor
 set -gx EDITOR nvim
 
@@ -56,6 +54,5 @@ alias cnpm "npm --registry=https://registry.npm.taobao.org \
  # peco
 bind \cr peco_select_history # Bind for peco select history to Ctrl+R
 
- # vim-like
- # command + k not working after this
-#bind \cl forward-char
+ # lfcd
+bind \co lfcd # Bind for lfcd to Ctrl+O
