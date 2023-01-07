@@ -4,5 +4,6 @@ if (not status) then return end
 colorizer.setup({
     'css';
     'javascript';
+    'conf';
     html = { mode = 'background' };
 })
