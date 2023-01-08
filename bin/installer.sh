@@ -24,19 +24,15 @@ if [[ $PLATFORM == 'macos' ]]; then
     brew install fisher
     brew install neovim
     brew install tree-sitter
-    brew install sqlite
-
-    brew install neovim
     brew install youtube-dl
     brew install ffmpeg
-    # Github
+    brew install sqlite
     brew install gh
+    brew install git-lfs
+    brew install rust
     brew install cocoapods
     brew install carthage
     brew install tldr
-    brew install rust
-
-    git lfs install
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -65,6 +61,7 @@ if [[ $PLATFORM == 'macos' ]]; then
     brew install --cask grammarly
     brew install --cask raycast 
     brew install --cask popclip
+    brew install --cask itsycal
     
 
 #Bin executable
