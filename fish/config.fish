@@ -40,6 +40,7 @@ function setup_aliases
     alias vi "nvim"
     alias vim "nvim"
     alias g git
+    alias top btop
 
     #use exa to replace ll, la
     if type -q exa

@@ -33,6 +33,7 @@ if [[ $PLATFORM == 'macos' ]]; then
     brew install cocoapods
     brew install carthage
     brew install tldr
+    brew install btop
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
