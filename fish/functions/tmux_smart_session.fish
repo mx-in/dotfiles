@@ -26,20 +26,24 @@ function display
     else
         tmux display $argv
     end
+end
 
+function get_session_name
+    echo (basename $argv)
 end
 
 function t_not_active
+
     echo tmux is not active
-    #save peco to variables
-    set z_select_result $(get_z_result)
-    set session_name (basename $z_select_result)
+
+    set file_path $argv
+    set session_name (get_session_name $file_path)
     #look for session
     if test -z $(try_to_get_in_session_list $session_name)
         # session does not exist
         display "creating session: $session_name"
         # jump to directory
-        cd $z_select_result
+        cd $file_path
         # create session
         tmux new-session -s $session_name
     else
@@ -50,13 +54,13 @@ function t_not_active
     end
 end
 
-function t_active
-        set z_select_result $(get_z_result)
-        set session_name (basename $z_select_result)
+function t_active 
+        set file_path $argv
+        set session_name (get_session_name $file_path)
 
         if test -z (try_to_get_in_session_list $session_name)
             display "Creating and swith to session: $session_name"
-            cd $z_select_result
+            cd $file_path
             # create session -d for default size -s for name
             tmux new-session -d -s $session_name
             # attach to session
@@ -68,11 +72,37 @@ function t_active
         end
 end
 
-function tmux_smart_session
+function tmux_smart_session -d "switch to session, -i/--init indicate the initial file path"
+    # handle argument
+    argparse i/init -- $argv
+    or return
+    # if init/i parameter is exist
+    if set -ql _flag_init
+            set init_path $argv[1]
 
+            # if no server running, there will be a error, result will be empty
+            if test -z (tmux list-sessions | head -1)
+                # initialize tmux with path parameter
+
+                if test -n $init_path
+                    t_not_active $init_path
+
+                else
+                    # if no path parameter, use home directory
+                    t_not_active $HOME
+                end
+
+            else 
+                # Attach to the most recently used session
+                tmux attach-session
+            end
+            return
+    end
+
+    set file_path (get_z_result)
     if test -z $TMUX
-        t_not_active
+        t_not_active $file_path
     else
-        t_active
+        t_active $file_path
     end
 end
