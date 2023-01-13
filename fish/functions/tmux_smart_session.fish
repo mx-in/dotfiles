@@ -1,7 +1,7 @@
-set prompt "switch to session:"
+#! /bin/fish
 
 function get_z_result
-    set select_result (zoxide query -l | peco --prompt $prompt)
+    set select_result (zoxide query -l | peco --prompt "switch to session:")
     #if empty exit
     if test -z $select_result
         exit 0
@@ -33,7 +33,6 @@ function get_session_name
 end
 
 function t_not_active
-
     echo tmux is not active
 
     set file_path $argv
@@ -73,36 +72,37 @@ function t_active
 end
 
 function tmux_smart_session -d "switch to session, -i/--init indicate the initial file path"
+
+
     # handle argument
     argparse i/init -- $argv
     or return
-    # if init/i parameter is exist
+    echo $argv
+    # if -init | -i parameter is exist and not active pane in current client
     if set -ql _flag_init
-            set init_path $argv[1]
-
-            # if no server running, there will be a error, result will be empty
-            if test -z (tmux list-sessions | head -1)
-                # initialize tmux with path parameter
-
-                if test -n $init_path
-                    t_not_active $init_path
-
-                else
-                    # if no path parameter, use home directory
-                    t_not_active $HOME
-                end
-
-            else 
-                # Attach to the most recently used session
-                tmux attach-session
+        set init_path $argv[1]
+        # if no server running, there will be a error, result will be empty
+        if test -z (tmux list-sessions | head -1)
+            # initialize tmux with path parameter
+            if test -n $init_path
+                t_not_active $init_path
+            else
+                # if no path parameter, use home directory
+                t_not_active $HOME
             end
-            return
-    end
+        else 
+            # Attach to the most recently used session
+            tmux attach-session
+        end
+        return
 
-    set file_path (get_z_result)
-    if test -z $TMUX
-        t_not_active $file_path
-    else
-        t_active $file_path
+    else 
+        set file_path (get_z_result)
+
+        if test -z $TMUX
+            t_not_active $file_path
+        else
+            t_active $file_path
+        end
     end
 end
