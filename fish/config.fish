@@ -58,6 +58,7 @@ end
 function key_binding
     bind \cr peco_select_history
     bind \co lfcd 
+    bind \cT "fish -c \"tmux_smart_session --init \$PWD\""
 end
 
 init_tools
