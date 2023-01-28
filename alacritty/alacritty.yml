@@ -28,6 +28,7 @@ shell:
 
 # Using xxd -psd record code
 key_bindings:
+  # Tmux
   #<C-b> c create new window 
   - {key: T, mods: Command, chars: "\x02\x63"}
   # Select a new tmux session for the attached client interactively
@@ -80,8 +81,10 @@ key_bindings:
   #Vim
   # Type <escape>:w<enter> to save neovim
   - { key: S, mods: Command, chars: "\x1b\x3a\x77\x0a" }
-                               
 
+  #Alacritty
+  #New  Instance
+  - { key: N,  mods: Command|Control, action: SpawnNewInstance } 
 
 #rose-pine
 colors:
