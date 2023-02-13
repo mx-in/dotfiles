@@ -8,7 +8,7 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_dotdot:\x2d\x2dregex\x20\x5e\x5c\x2e\x5c\x2e\x2b\x24\x20\x2d\x2dfunction\x20multicd
 SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gaa:git\x20add\x20\x2d\x2dall
-SETUVAR _fish_abbr_gc:git\x20commit
+SETUVAR _fish_abbr_gc:git\x20commit\x20\x2d\x2dverbose
 SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gp:git\x20push
@@ -42,7 +42,7 @@ SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_greeting:\x2d\x2d\x21
-SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_key_bindings:fish_hybrid_key_bindings
 SETUVAR fish_lang:en_US\x2eUTF\x2d8
 SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
