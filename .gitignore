@@ -12,4 +12,4 @@
 !nvim/**
 !tmux/**
 
-**/fish_variables
+#**/fish_variables
