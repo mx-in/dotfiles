@@ -23,7 +23,7 @@ end
 
 
 function add_path
-    fish_add_path $HOME/.flutter/bin
+    #fish_add_path $HOME/.flutter/bin
     fish_add_path $HOME/.config/bin
 end
 
