@@ -20,7 +20,8 @@ SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fisher_jorgebucaran_2F_fishtape_files:\x7e/\x2econfig/fish/functions/fishtape\x2efish\x1e\x7e/\x2econfig/fish/completions/fishtape\x2efish
 SETUVAR _fisher_joshmedeski_2F_fish_2D_lf_2D_icons_files:\x7e/\x2econfig/fish/conf\x2ed/lf\x2dicons\x2efish
-SETUVAR _fisher_plugins:rose\x2dpine/fish\x1ejoshmedeski/fish\x2dlf\x2dicons\x1ejorgebucaran/fishtape
+SETUVAR _fisher_mx_2D_in_2F_pathshorten_files:\x7e/\x2econfig/fish/functions/pathshorten\x2efish
+SETUVAR _fisher_plugins:rose\x2dpine/fish\x1ejoshmedeski/fish\x2dlf\x2dicons\x1ejorgebucaran/fishtape\x1emx\x2din/pathshorten
 SETUVAR _fisher_rose_2D_pine_2F_fish_files:\x7e/\x2econfig/fish/themes/Ros\u00e9\x20Pine\x20Dawn\x2etheme\x1e\x7e/\x2econfig/fish/themes/Ros\u00e9\x20Pine\x20Moon\x2etheme\x1e\x7e/\x2econfig/fish/themes/Ros\u00e9\x20Pine\x2etheme
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_bind_mode:normal
