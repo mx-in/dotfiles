@@ -29,7 +29,8 @@ function display
 end
 
 function get_session_name
-    echo (basename $argv)
+    #echo (basename $argv)
+    echo (pathshorten (string replace "." "•"  $argv) 3)
 end
 
 function t_not_active
