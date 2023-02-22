@@ -33,6 +33,7 @@ brew install cocoapods
 brew install carthage
 brew install tldr
 brew install btop
+brew install thefuck
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -57,6 +58,26 @@ brew install --cask grammarly
 brew install --cask raycast 
 brew install --cask itsycal
 brew install --cask squirrel
+brew install --cask visual-studio-code
+brew install --cask typora
+brew install --cask one-switch
+brew install --cask shottr
+brew install --cask openinterminal
+brew install --cask intellij-idea
+brew install --cask datagrip
+brew install --cask coconutbattery
+brew install --cask calibre
+brew install --cask pdf-expert
+brew install --cask zoom
+brew install --cask tencent-meeting
+brew install --cask fork
+brew install --cask appcleaner
+brew install --cask anki
+brew install --cask iterm2
+brew install --cask android-studio
+brew install --cask the-unarchiver
+brew install --cask kindle
+brew install --cask imazing
 
 #Bin executable
 chmod +x ~/.config/bin/*
