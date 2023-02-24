@@ -2,6 +2,8 @@
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Tools
+# file's metadata viewer
+brew install exiftool
 # Git Large File Storage
 brew install git-lfs
 # Smarter cd
