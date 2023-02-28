@@ -1,6 +1,10 @@
 #!/bin/bash
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+if [[ $(uname -p) == 'arm' ]]; then
+    export PATH=/opt/homebrew/bin:$PATH
+fi
 # Tools
 # file's metadata viewer
 brew install exiftool
@@ -36,6 +40,7 @@ brew install carthage
 brew install tldr
 brew install btop
 brew install thefuck
+brew install tmux-mem-cpu-load
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -51,12 +56,12 @@ brew install --cask postman
 brew install --cask slack
 brew install --cask dash
 brew install --cask telegram
-brew install --cask surge@3.5.9
+brew install --cask surge
 brew install --cask openinterminal
 brew install --cask hiddenbar
 brew install --cask betterdisplay
 brew install --cask flux
-brew install --cask grammarly
+brew install --cask grammarly-desktop
 brew install --cask raycast 
 brew install --cask itsycal
 brew install --cask squirrel

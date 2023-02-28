@@ -13,7 +13,8 @@ window:
 
 font:
   normal:
-    family: "JetBrainsMono Nerd Font"
+    #family: "JetBrainsMono Nerd Font"
+    family: "BlexMono Nerd Font Mono"
     style: Regular 
   thin-strokes: true
   size: 15.0
@@ -22,7 +23,7 @@ font:
     y: 3
 
 shell:
-  program: /usr/local/bin/fish
+  program: /opt/homebrew/bin/fish
   args:
     - --login
 
