@@ -11,5 +11,6 @@
 !lf/**
 !nvim/**
 !tmux/**
+!bat/**
 
 #**/fish_variables

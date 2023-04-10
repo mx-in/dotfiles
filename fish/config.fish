@@ -48,6 +48,12 @@ function setup_aliases
         alias ll "exa -l -g --icons"
         alias lla "ll -a"
     end
+
+    #use bat to replace cat
+    if type -q cat
+        alias cat "bat"
+    end
+
     # Chinese NPM Source
     alias cnpm "npm --registry=https://registry.npm.taobao.org \
     --cache=$HOME/.npm/.cache/cnpm \
