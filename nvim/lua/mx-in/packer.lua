@@ -70,6 +70,15 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+
+    use({
+        "folke/trouble.nvim",
+        config = function()
+            require("trouble").setup {
+            }
+        end
+    })
+
     use 'windwp/nvim-ts-autotag'
     use 'nvim-tree/nvim-web-devicons'
     use 'jose-elias-alvarez/null-ls.nvim'
@@ -80,5 +89,4 @@ return require('packer').startup(function(use)
     use 'mhinz/vim-startify'
 
     use 'github/copilot.vim'
-
 end)
