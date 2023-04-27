@@ -2,8 +2,9 @@ local status, colorizer = pcall(require, "colorizer")
 if (not status) then return end
 
 colorizer.setup({
-    'css';
-    'javascript';
-    'conf';
-    html = { mode = 'background' };
+  'css',
+  'javascript',
+  'conf',
+  'lua',
+  html = { mode = 'background' },
 })

@@ -91,4 +91,11 @@ return require('packer').startup(function(use)
   use 'eandrju/cellular-automaton.nvim'
 
   use 'github/copilot.vim'
+
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
+
+  use 'folke/lsp-colors.nvim'
 end)
