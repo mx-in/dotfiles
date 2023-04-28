@@ -18,9 +18,9 @@ git.setup({
     -- Create a pull request with the target branch is set in the `target_branch` option
     create_pull_request = "<Leader>gn",
     -- Opens a new diff that compares against the current index
-    diff = "<Leader>gdf",
+    diff = "<Leader>gd",
     -- Close git diff
-    diff_close = "<Leader>gDf",
+    diff_close = "<Leader>gD",
     -- Revert to the specific commit
     revert = "<Leader>gr",
     -- Revert the current file to the specific commit

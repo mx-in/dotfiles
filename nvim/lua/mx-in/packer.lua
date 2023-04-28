@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
       { 'rafamadriz/friendly-snippets' },
     }
   }
+  use 'folke/lsp-colors.nvim'
   use 'onsails/lspkind-nvim'
   use({
     'nvim-lualine/lualine.nvim',
@@ -97,5 +98,15 @@ return require('packer').startup(function(use)
     requires = "neovim/nvim-lspconfig"
   }
 
-  use 'folke/lsp-colors.nvim'
+  use {
+    "SmiteshP/nvim-navbuddy",
+    requires = {
+      "neovim/nvim-lspconfig",
+      "SmiteshP/nvim-navic",
+      "MunifTanjim/nui.nvim",
+      "numToStr/Comment.nvim",        -- Optional
+      "nvim-telescope/telescope.nvim" -- Optional
+    }
+  }
+  use 'numToStr/Comment.nvim'
 end)
