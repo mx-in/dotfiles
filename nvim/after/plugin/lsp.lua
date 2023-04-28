@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local navic = require("nvim-navic")
 
 lsp.preset("recommended")
 
@@ -20,22 +21,23 @@ lsp.configure('lua_ls', {
 
 local lspkind = require('lspkind')
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-e>"] = cmp.mapping.complete(),
+local cmp_mappings = lsp.defaults.cmp_mappings()
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<C-e>'] = cmp.mapping.complete(),
+    ['<C-a>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true })
+  })
 })
-
-local cmp_formatting = {
-  format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-}
 
 -- disable completion with tab
 -- this helps with copilot setup
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
+
+local cmp_formatting = {
+  format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+}
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
@@ -75,12 +77,17 @@ local enable_format_on_save = function(_, bufnr)
   })
 end
 
+
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   if client.name == "eslint" then
     vim.cmd.LspStop('eslint')
     return
+  end
+
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
   end
 
   -- format on save
