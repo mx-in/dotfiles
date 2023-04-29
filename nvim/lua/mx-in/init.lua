@@ -1,5 +1,6 @@
 require("mx-in.remap")
 require("mx-in.set")
+require("mx-in.plugins")
 
 -- underlines color
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
