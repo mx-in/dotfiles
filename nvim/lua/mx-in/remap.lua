@@ -47,7 +47,7 @@ keymap.set('x', '<leader>p', [['_dP]])
 
 keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
-keymap.set('n', '<leader>vpk', '<cmd>e ~/.config/nvim/lua/mx-in/packer.lua<CR>');
+keymap.set('n', '<leader>vp', '<cmd>e ~/.config/nvim/lua/mx-in/plugins.lua<CR>');
 keymap.set('n', '<leader>vrmp', '<cmd>e ~/.config/nvim/lua/mx-in/remap.lua<CR>');
 keymap.set('n', '<leader>vlsp', '<cmd>e ~/.config/nvim/after/plugin/lsp.lua<CR>');
 keymap.set('n', '<leader>vtl', '<cmd>e ~/.config/nvim/after/plugin/telescope.lua<CR>');
