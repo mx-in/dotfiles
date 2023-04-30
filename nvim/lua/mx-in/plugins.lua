@@ -156,10 +156,11 @@ local plugins = {
     'folke/zen-mode.nvim'
   },
 
-  -- Markdown Preview
   {
-    'iamcco/markdown-preview.nvim'
+    'iamcco/markdown-preview.nvim',
+    build = 'cd app && yarn install'
   },
+
 
   -- Colorizer
   {
@@ -211,9 +212,5 @@ local plugins = {
     'wakatime/vim-wakatime'
   },
 
-  -- Automatic input method switching
-  {
-    'rlue/vim-barbaric'
-  }
 }
 require('lazy').setup(plugins, {})

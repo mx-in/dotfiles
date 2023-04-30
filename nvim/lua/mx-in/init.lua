@@ -10,6 +10,8 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 1
 vim.g.netrw_winsize = 25
 
+vim.g.mkdp_auto_close = 0
+
 -- highlight after yank
 vim.cmd [[
   augroup highlight_yank

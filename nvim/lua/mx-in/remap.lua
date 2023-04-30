@@ -52,6 +52,7 @@ keymap.set('n', '<leader>vrmp', '<cmd>e ~/.config/nvim/lua/mx-in/remap.lua<CR>')
 keymap.set('n', '<leader>vlsp', '<cmd>e ~/.config/nvim/after/plugin/lsp.lua<CR>');
 keymap.set('n', '<leader>vtl', '<cmd>e ~/.config/nvim/after/plugin/telescope.lua<CR>');
 keymap.set('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>');
+keymap.set('n', '<leader>mp', '<cmd>MarkdownPreview<CR>');
 
 -- reolad current file on normal mode
 keymap.set('n', '<leader><leader>', function()
