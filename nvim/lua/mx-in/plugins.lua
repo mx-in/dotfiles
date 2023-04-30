@@ -209,6 +209,11 @@ local plugins = {
   -- Weaktime
   {
     'wakatime/vim-wakatime'
+  },
+
+  -- Automatic input method switching
+  {
+    'rlue/vim-barbaric'
   }
 }
 require('lazy').setup(plugins, {})
