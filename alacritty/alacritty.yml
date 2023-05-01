@@ -8,14 +8,14 @@ window:
   dynamic_padding: false
   decorations: buttonless
   dimensions:
-    columns: 95 
-    lines: 45 
+    columns: 95
+    lines: 45
 
 font:
   normal:
     #family: "JetBrainsMono Nerd Font"
     family: "BlexMono Nerd Font Mono"
-    style: Regular 
+    style: Regular
   thin-strokes: true
   size: 15.0
   offset:
@@ -30,8 +30,8 @@ shell:
 # Using xxd -psd record code
 key_bindings:
   # Tmux
-  #<C-b> c create new window 
-  - {key: T, mods: Command, chars: "\x02\x63"}
+  #<C-b> c create new window
+  - { key: T, mods: Command, chars: "\x02\x63" }
   # Select a new tmux session for the attached client interactively
   - { key: W, mods: Command|Shift, chars: "\x02\x73" }
   # Rename the current tmux window
@@ -85,7 +85,7 @@ key_bindings:
 
   #Alacritty
   #New  Instance
-  - { key: N,  mods: Command|Control, action: SpawnNewInstance } 
+  - { key: N, mods: Command|Control, action: SpawnNewInstance }
 
 #rose-pine
 colors:

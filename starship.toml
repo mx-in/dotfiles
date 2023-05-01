@@ -1,10 +1,45 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$git_metrics\
+
+$fill\
+$nodejs\
+$rust\
+$lua\
+$cmd_duration $jobs $time\
+$line_break\
+$character"""
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+
+[lua]
+format = '[$symbol($version)]($style) '
+
+[deno]
+format = '[$symbol($version)]($style) '
+
+[c]
+format = '[$name ($version)]($style)'
+
+[fill]
+symbol = " "
+
 [character]
 success_symbol = "[](#908caa)"
 error_symbol = "[](#eb6f92)"
 vicmd_symbol = "[](green)"
 
 [directory]
-style = "blue bold"
+style = "#9ccfd8 dimmed bold"
+read_only = " "
+truncation_length = 4
+truncate_to_repo = false
 
 [package]
 disabled = true
@@ -22,16 +57,40 @@ disabled = true
 disabled = true
 
 [git_branch]
-disabled = true
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "#6e6a86"
 
 [git_commit]
 disabled = true
 
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+style = "bold #b4637a"
+
 [git_state]
-disabled = true
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "#56949f"
 
 [git_metrics]
-disabled = true
+disabled = false
+format = '[+$added/-$deleted]($deleted_style) '
+deleted_style = "#6e6a86"
 
-#[git_status]
-#disabled = true
+[cmd_duration]
+format = "[$duration]($style)"
+style = "#f6c177"
+
+[memory_usage]
+symbol = " " 
+threshold = 75 
+disabled = false
+style = "#eb6f92"
+
+[rust]
+symbol = " "
+
+[time]
+disabled = false
+style = "#cecacd bold"
+format = "[$time]($style)"
