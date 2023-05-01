@@ -49,7 +49,7 @@ vim.opt.cursorline = true
 vim.opt.formatoptions:append { 'r' }
 
 -- Set clipboard to use system clipboard
-vim.opt.clipboard:append { 'unnamedplus' }
+--vim.opt.clipboard:append { 'unnamedplus' }
 
 vim.opt.wildoptions = { 'pum' }
 vim.opt.pumblend = 6

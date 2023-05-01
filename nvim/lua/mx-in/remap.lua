@@ -8,9 +8,15 @@ keymap.set('n', '<leader>pv', vim.cmd.Ex)
 -- delete without yanking
 keymap.set('n', 'x', '"_x')
 
+-- yank to clipboard
+keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+keymap.set("n", "<leader>Y", [["+Y]])
+-- delete without yanking
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+
 -- Increment/decrement
-keymap.set('n', '+', '<C-a>')
 keymap.set('n', '-', '<C-x>')
+keymap.set('n', '+', '<C-a>')
 
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 keymap.set('n', '<leader>sx', ':split<Return><C-w>w')
