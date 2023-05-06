@@ -36,8 +36,9 @@ keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
 -- Move selected line / block of text in visual mode
-keymap.set('v', 'J', ':m \'>+2<CR>gv=gv')
-keymap.set('v', 'K', ':m \'<-1<CR>gv=gv')
+keymap.set('v', 'K', ':m \'>-2<CR>gv=gv')
+keymap.set('v', 'J', ':m \'>+1<CR>gv=gv')
+
 keymap.set('n', 'J', 'mzJ`z')
 keymap.set('n', 'n', 'nzzzv')
 keymap.set('n', 'N', 'Nzzzv')
