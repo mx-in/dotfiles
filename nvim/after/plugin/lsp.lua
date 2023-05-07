@@ -82,6 +82,24 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
+  if client.server_capabilities.documentHighlightProvider then
+    local group = vim.api.nvim_create_augroup("LSPDocumentHighlight", {})
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      buffer = bufnr,
+      group = group,
+      callback = function()
+        vim.lsp.buf.document_highlight()
+      end,
+    })
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      buffer = bufnr,
+      group = group,
+      callback = function()
+        vim.lsp.buf.clear_references()
+      end,
+    })
+  end
+
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
