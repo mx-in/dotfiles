@@ -16,6 +16,7 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
+vim.opt.smartcase = true
 
 vim.opt.wrap = false
 vim.opt.swapfile = false
