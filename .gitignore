@@ -12,5 +12,6 @@
 !nvim/**
 !tmux/**
 !bat/**
+!.github/**
 
 #**/fish_variables
