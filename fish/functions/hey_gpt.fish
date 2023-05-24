@@ -1,6 +1,4 @@
 function hey_gpt -a prompt
-    echo "Prompt: ------------------------------------------"
-    echo $prompt
     echo "--------------------------------------------------"
     set gpt (curl https://api.openai.com/v1/chat/completions -s \
     -H "Content-Type: application/json" \
@@ -10,5 +8,5 @@ function hey_gpt -a prompt
         "messages": [{"role": "user", "content": "'$prompt'"}],
         "temperature": 0.7
     }')
-    echo $gpt | jq -r '.choices[0].message.content'
+    echo $gpt | jq -r '.choices[0].message.content' | string replace '```' ''
 end

@@ -11,5 +11,5 @@ function data_gpt -a prompt data
         "model": "gpt-3.5-turbo",
         "messages": [{"role": "user", "content": "'$prompt_input'"}],
         "temperature": 0.7
-    }' | jq -r '.choices[0].message.content'
+    }' | jq -r '.choices[0].message.content' | string replace '```' ''
 end
