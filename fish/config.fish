@@ -78,3 +78,5 @@ add_path
 git_config
 setup_aliases
 key_binding
+
+source $HOME/.config/fish/privacy.fish

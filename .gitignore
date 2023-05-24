@@ -13,5 +13,6 @@
 !tmux/**
 !bat/**
 !.github/**
+fish/privacy.fish
 
 #**/fish_variables
