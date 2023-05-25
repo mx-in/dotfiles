@@ -1,9 +1,5 @@
 function data_gpt -a prompt data
     set prompt_input (echo "$prompt: $data" | string join ' ')
-    echo "Prompt Inputs: ------------------------------------------"
-    echo $prompt_input
-    echo "---------------------------------------------------------"
-
     curl https://api.openai.com/v1/chat/completions -s \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $OPENAI_API_KEY" \

@@ -1,5 +1,4 @@
 function hey_gpt -a prompt
-    echo "--------------------------------------------------"
     set gpt (curl https://api.openai.com/v1/chat/completions -s \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $OPENAI_API_KEY" \
