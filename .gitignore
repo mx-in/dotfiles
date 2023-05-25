@@ -14,5 +14,7 @@
 !bat/**
 !.github/**
 fish/privacy.fish
+fish/openai_keys.*
+**/*.*bak*
 
 #**/fish_variables
