@@ -1,4 +1,8 @@
 function test_openai_key -a key 
+    if test -z "$key"
+      set key $OPENAI_API_KEY 
+    end
+
     set gpt (curl https://api.openai.com/v1/chat/completions -s \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $key" \
