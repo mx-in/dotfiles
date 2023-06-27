@@ -18,6 +18,9 @@ SETUVAR _fish_abbr_glog:git\x20log\x20\x2d\x2doneline\x20\x2d\x2ddecorate\x20\x2
 SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gst:git\x20status
+SETUVAR _fish_abbr_??:copilot_gh-assist
+SETUVAR _fish_abbr_git?:copilot_git-assist
+SETUVAR _fish_abbr_gh?:copilot_gh-assist
 SETUVAR _fisher_jorgebucaran_2F_fishtape_files:\x7e/\x2econfig/fish/functions/fishtape\x2efish\x1e\x7e/\x2econfig/fish/completions/fishtape\x2efish
 SETUVAR _fisher_joshmedeski_2F_fish_2D_lf_2D_icons_files:\x7e/\x2econfig/fish/conf\x2ed/lf\x2dicons\x2efish
 SETUVAR _fisher_mx_2D_in_2F_pathshorten_files:\x7e/\x2econfig/fish/functions/pathshorten\x2efish
