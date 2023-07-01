@@ -29,7 +29,7 @@ brew install fish
 brew install fisher
 brew install neovim
 brew install tree-sitter
-brew install youtube-dl
+brew install yt-dlp
 brew install ffmpeg
 brew install sqlite
 brew install gh
