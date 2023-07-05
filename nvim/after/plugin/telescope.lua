@@ -52,6 +52,7 @@ vim.keymap.set("n", "<leader>fb", function()
     grouped = true,
     previewer = false,
     initial_mode = "normal",
+    select_buffer = true,
     layout_config = { height = 40 }
   })
 end)
