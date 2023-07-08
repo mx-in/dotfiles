@@ -42,6 +42,8 @@ brew install btop
 brew install thefuck
 brew install tmux-mem-cpu-load
 brew install bat
+brew install fd
+brew install cloc
 
 # Packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
