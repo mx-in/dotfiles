@@ -1,6 +1,8 @@
 local lsp = require("lsp-zero")
 local navic = require("nvim-navic")
 local navbuddy = require('nvim-navbuddy')
+local ih = require('lsp-inlayhints')
+ih.setup()
 
 lsp.preset("recommended")
 
@@ -9,15 +11,55 @@ lsp.ensure_installed({
   'tsserver',
 })
 
+vim.keymap.set('n', '<leader>ti', function()
+  require('lsp-inlayhints').toggle()
+end, { desc = 'Toggle Inlay Hints' })
+
 -- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
+require('lspconfig').lua_ls.setup({
+  on_attach = function(client, bufnr)
+    ih.on_attach(client, bufnr)
+  end,
   settings = {
     Lua = {
       diagnostics = {
         globals = { 'vim' }
-      }
+      },
+      hint = {
+        enable = true,
+      },
     }
   }
+})
+
+require('lspconfig').tsserver.setup({
+  on_attach = function(client, bufnr)
+    ih.on_attach(client, bufnr)
+  end,
+  settings = {
+    javascript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
+    },
+    typescript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = 'all',
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
+    },
+  },
 })
 
 local lspkind = require('lspkind')

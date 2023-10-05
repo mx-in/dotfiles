@@ -222,5 +222,9 @@ local plugins = {
       })
     end
   },
+
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+  }
 }
 require('lazy').setup(plugins, {})
