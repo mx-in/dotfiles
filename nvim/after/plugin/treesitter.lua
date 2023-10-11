@@ -18,6 +18,7 @@ ts.setup {
     "swift",
     "css",
     "html",
+    "prisma"
   },
 
   indent = {
