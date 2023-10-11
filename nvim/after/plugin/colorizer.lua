@@ -6,5 +6,7 @@ colorizer.setup({
   'javascript',
   'conf',
   'lua',
+  'typescript',
+  'tsx',
   html = { mode = 'background' },
 })
