@@ -15,6 +15,16 @@ vim.keymap.set('n', '<leader>ti', function()
   require('lsp-inlayhints').toggle()
 end, { desc = 'Toggle Inlay Hints' })
 
+local cmp_nvim_lsp = require "cmp_nvim_lsp"
+
+require("lspconfig").clangd.setup {
+  capabilities = cmp_nvim_lsp.default_capabilities(),
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
 -- Fix Undefined global 'vim'
 require('lspconfig').lua_ls.setup({
   on_attach = function(client, bufnr)

@@ -5,6 +5,7 @@ function init_tools
     starship init fish | source
     zoxide init fish | source
     thefuck --alias | source
+    pyenv init - | source
 end
 
 function proxy_setting
