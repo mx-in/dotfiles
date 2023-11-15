@@ -3,6 +3,8 @@ local t = ls.text_node
 -- local i = ls.insert_node
 -- local f = ls.function_node
 local s = ls.snippet
+local d = ls.dynamic_node
+
 
 
 ls.add_snippets('yaml', {
@@ -15,4 +17,10 @@ ls.add_snippets('yaml', {
       "tabWidth: 2",
       "trailingComma: 'none'" })
   })
+})
+
+ls.add_snippets('all', {
+  s("cn", {
+    t("{cn('')}"),
+  }),
 })
