@@ -1,4 +1,5 @@
 local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
 
 vim.g.mapleader = ' '
 
@@ -19,8 +20,8 @@ keymap.set('n', '-', '<C-x>')
 keymap.set('n', '+', '<C-a>')
 
 keymap.set('n', '<C-a>', 'gg<S-v>G')
-keymap.set('n', '<leader>sx', ':split<Return><C-w>w')
-keymap.set('n', '<leader>sv', ':vsplit<Return><C-w>w')
+keymap.set('n', '<leader>sx', ':split<Return><C-w>w', opts)
+keymap.set('n', '<leader>sv', ':vsplit<Return><C-w>w', opts)
 
 -- Move window
 keymap.set('n', 'sn', '<C-w>w')
@@ -68,3 +69,6 @@ end)
 
 -- New tab
 keymap.set('n', 'te', ':tabedit')
+
+-- Jumplist
+keymap.set('n', '<C-m>', '<C-i>', opts)
