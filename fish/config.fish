@@ -6,6 +6,7 @@ function init_tools
     zoxide init fish | source
     thefuck --alias | source
     pyenv init - | source
+    pyenv virtualenv-init - | source
 end
 
 function proxy_setting

@@ -2,6 +2,12 @@ local lsp = require("lsp-zero")
 local navic = require("nvim-navic")
 local navbuddy = require('nvim-navbuddy')
 
+navbuddy.setup {
+  window = {
+    { row = "100%", col = "%0" }
+  },
+}
+
 lsp.preset("recommended")
 lsp.ensure_installed({
   'rust_analyzer',
@@ -9,6 +15,24 @@ lsp.ensure_installed({
 })
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
+
+local util = require('lspconfig/util')
+local path = util.path
+--https://github.com/neovim/nvim-lspconfig/issues/500
+local function get_python_path(workspace)
+  if vim.env.VIRTUAL_ENV then
+    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+  end
+  return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+end
+
+require 'lspconfig'.pyright.setup {
+  on_attach = function()
+  end,
+  on_init = function(client)
+    client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
+  end
+}
 
 require("lspconfig").clangd.setup {
   capabilities = cmp_nvim_lsp.default_capabilities(),
@@ -36,25 +60,25 @@ require('lspconfig').tsserver.setup({
   settings = {
     javascript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayParameterNameHints = "literal",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayVariableTypeHints = false,
         includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
       },
     },
     typescript = {
       inlayHints = {
-        includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = 'all',
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayVariableTypeHints = false,
         includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
-      },
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      }
     },
   },
 })
