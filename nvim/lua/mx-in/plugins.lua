@@ -18,7 +18,8 @@ local plugins = {
     version = '0.1.4',
     dependencies = {
       { 'nvim-lua/plenary.nvim' }
-    }
+    },
+    lazy = true
   },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -26,9 +27,11 @@ local plugins = {
     cond = function()
       return vim.fn.executable 'make' == 1
     end,
+    lazy = true,
   },
   {
-    'nvim-telescope/telescope-file-browser.nvim'
+    'nvim-telescope/telescope-file-browser.nvim',
+    lazy = true,
   },
 
   -- Treesitter
@@ -44,18 +47,21 @@ local plugins = {
 },
 
   {
-    'mbbill/undotree'
+    'mbbill/undotree',
+    lazy = true,
   },
 
   -- Git
   {
-    'tpope/vim-fugitive'
+    'tpope/vim-fugitive',
+    lazy = true,
   },
   {
-    'dinhhuy258/git.nvim'
+    'dinhhuy258/git.nvim',
+    lazy = true,
   },
   {
-    'lewis6991/gitsigns.nvim'
+    'lewis6991/gitsigns.nvim',
   },
 
   -- Theme
@@ -125,7 +131,8 @@ local plugins = {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup({})
-    end
+    end,
+    lazy = true
   },
 
   -- Trouble
@@ -133,12 +140,17 @@ local plugins = {
     'folke/trouble.nvim',
     config = function()
       require('trouble').setup({})
-    end
+    end,
+    lazy = true
   },
 
   -- TS Autotag
   {
-    'windwp/nvim-ts-autotag'
+    'windwp/nvim-ts-autotag',
+    config = function()
+      require('nvim-ts-autotag').setup({})
+    end,
+    lazy = true
   },
 
   -- Icons
@@ -153,28 +165,29 @@ local plugins = {
 
   -- Zen Mode
   {
-    'folke/zen-mode.nvim'
+    'folke/zen-mode.nvim',
+    lazy = true
   },
 
   {
     'iamcco/markdown-preview.nvim',
-    build = 'cd app && yarn install'
+    build = 'cd app && yarn install',
   },
-
 
   -- Colorizer
   {
-    'norcalli/nvim-colorizer.lua'
+    'norcalli/nvim-colorizer.lua',
+    lazy = true
   },
 
   -- Startify
   {
-    'mhinz/vim-startify'
+    'mhinz/vim-startify',
   },
 
   -- Cellular Automaton
   {
-    'eandrju/cellular-automaton.nvim'
+    'eandrju/cellular-automaton.nvim',
   },
 
   -- Copilot.vim
@@ -187,7 +200,8 @@ local plugins = {
     'SmiteshP/nvim-navic',
     dependencies = {
       'neovim/nvim-lspconfig'
-    }
+    },
+    lazy = true,
   },
 
   -- NavBuddy
@@ -204,7 +218,8 @@ local plugins = {
 
   -- Comment
   {
-    'numToStr/Comment.nvim'
+    'numToStr/Comment.nvim',
+    lazy = true,
   },
 
   -- Weaktime
@@ -220,11 +235,13 @@ local plugins = {
       require("nvim-surround").setup({
         -- Configuration here, or leave empty to use defaults
       })
-    end
+    end,
+    lazy = true,
   },
 
   {
     "lvimuser/lsp-inlayhints.nvim",
+    version = "anticonceal"
   }
 }
 require('lazy').setup(plugins, {})
