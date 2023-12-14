@@ -1,19 +1,12 @@
 local lsp = require("lsp-zero")
 local navic = require("nvim-navic")
 local navbuddy = require('nvim-navbuddy')
-local ih = require('lsp-inlayhints')
-ih.setup()
 
 lsp.preset("recommended")
-
 lsp.ensure_installed({
   'rust_analyzer',
   'tsserver',
 })
-
-vim.keymap.set('n', '<leader>ti', function()
-  require('lsp-inlayhints').toggle()
-end, { desc = 'Toggle Inlay Hints' })
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
 
@@ -27,9 +20,6 @@ require("lspconfig").clangd.setup {
 
 -- Fix Undefined global 'vim'
 require('lspconfig').lua_ls.setup({
-  on_attach = function(client, bufnr)
-    ih.on_attach(client, bufnr)
-  end,
   settings = {
     Lua = {
       diagnostics = {
@@ -43,9 +33,6 @@ require('lspconfig').lua_ls.setup({
 })
 
 require('lspconfig').tsserver.setup({
-  on_attach = function(client, bufnr)
-    ih.on_attach(client, bufnr)
-  end,
   settings = {
     javascript = {
       inlayHints = {
