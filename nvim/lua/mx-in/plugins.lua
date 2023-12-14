@@ -240,8 +240,10 @@ local plugins = {
   },
 
   {
-    "lvimuser/lsp-inlayhints.nvim",
-    version = "anticonceal"
+    'lvimuser/lsp-inlayhints.nvim',
+    branch = 'anticonceal',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = true,
   }
 }
 require('lazy').setup(plugins, {})
