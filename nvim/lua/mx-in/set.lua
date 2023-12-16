@@ -29,6 +29,9 @@ vim.opt.cmdheight = 1
 
 vim.opt.shell = 'fish'
 
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
+
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
