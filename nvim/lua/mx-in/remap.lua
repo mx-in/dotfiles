@@ -44,6 +44,8 @@ keymap.set('n', 'J', 'mzJ`z')
 keymap.set('n', 'n', 'nzzzv')
 keymap.set('n', 'N', 'Nzzzv')
 
+keymap.set('n', '<C-c>', ':nohlsearch<CR>', opts)
+
 keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
 -- keep cursor centered
