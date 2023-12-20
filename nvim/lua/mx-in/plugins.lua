@@ -48,7 +48,6 @@ local plugins = {
 
   {
     'mbbill/undotree',
-    lazy = true,
   },
 
   -- Git
