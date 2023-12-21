@@ -189,11 +189,6 @@ local plugins = {
     'eandrju/cellular-automaton.nvim',
   },
 
-  -- Copilot.vim
-  {
-    'github/copilot.vim'
-  },
-
   -- Navic
   {
     'SmiteshP/nvim-navic',
@@ -259,6 +254,29 @@ local plugins = {
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
     },
+  },
+
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts) require 'lsp_signature'.setup(opts) end
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  },
+
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
   }
 }
 require('lazy').setup(plugins, {})
