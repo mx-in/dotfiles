@@ -202,7 +202,8 @@ local function taiwind_fromat(entry, vim_item)
   return vim_item
 end
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+-- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#c4a7e7" })
 local has_words_before = function()
   if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -213,8 +214,8 @@ cmp.setup({
   sources = {
     { name = "copilot",  group_index = 2 },
     -- Other Sources
-    { name = "nvim_lsp", group_index = 2 },
-    { name = "path",     group_index = 2 },
+    { name = "nvim_lsp", group_index = 1 },
+    { name = "path",     group_index = 1 },
     { name = "luasnip",  group_index = 2 },
   },
   mapping = cmp.mapping.preset.insert({
