@@ -277,6 +277,7 @@ local plugins = {
     config = function()
       require("copilot").setup({})
     end,
-  }
+  },
+  { 'AndreM222/copilot-lualine' }
 }
 require('lazy').setup(plugins, {})

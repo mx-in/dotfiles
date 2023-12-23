@@ -66,6 +66,30 @@ lualine.setup {
     } },
     lualine_x = {
       {
+        'copilot',
+        -- Default values
+        symbols = {
+          status = {
+            icons = {
+              enabled = "ﯙ",
+              disabled = "",
+              warning = "𥉉",
+              unknown = ""
+            },
+            hl = {
+              enabled = "#c4a7e7",
+              disabled = "#e0def4",
+              warning = "#f6c177",
+              unknown = "#eb6f92"
+            }
+          },
+          spinners = require("copilot-lualine.spinners").dots,
+          spinner_color = "#f2e9e1"
+        },
+        show_colors = true,
+        show_loading = true
+      },
+      {
         'diagnostics',
         sources = { 'nvim_diagnostic' },
         symbols = {
