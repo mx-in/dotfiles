@@ -130,8 +130,7 @@ local plugins = {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup({})
-    end,
-    lazy = true
+    end
   },
 
   -- Trouble
@@ -140,7 +139,6 @@ local plugins = {
     config = function()
       require('trouble').setup({})
     end,
-    lazy = true
   },
 
   -- TS Autotag
@@ -149,7 +147,6 @@ local plugins = {
     config = function()
       require('nvim-ts-autotag').setup({})
     end,
-    lazy = true
   },
 
   -- Icons
