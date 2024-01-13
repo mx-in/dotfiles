@@ -12,6 +12,12 @@ vim.g.netrw_winsize = 25
 
 vim.g.mkdp_auto_close = 0
 
+vim.o.guicursor = table.concat({
+  "n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blink",
+  "i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blink",
+  "r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100"
+}, ",")
+
 -- highlight after yank
 vim.cmd [[
   augroup highlight_yank

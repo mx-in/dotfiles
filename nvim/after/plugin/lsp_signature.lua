@@ -1,4 +1,4 @@
-cfg = {
+local cfg = {
   hint_enable = false,                      -- virtual hint enable
   hint_prefix = " ",                        -- Panda for parameter, NOTE: for the terminal not support emoji, might crash
   hint_scheme = "String",
