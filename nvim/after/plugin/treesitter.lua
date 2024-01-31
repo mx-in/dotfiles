@@ -19,7 +19,8 @@ ts.setup {
     "css",
     "html",
     "prisma",
-    "python"
+    "python",
+    "yaml"
   },
 
   indent = {
