@@ -16,7 +16,6 @@ font:
     #family: "JetBrainsMono Nerd Font"
     family: "BlexMono Nerd Font Mono"
     style: Regular
-  thin-strokes: true
   size: 16.0
   offset:
     x: 0

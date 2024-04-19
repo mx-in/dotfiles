@@ -1,0 +1,252 @@
+live_config_reload = true
+
+[colors.bright]
+black = "0x6e6a86"
+blue = "0x9ccfd8"
+cyan = "0xebbcba"
+green = "0x31748f"
+magenta = "0xc4a7e7"
+red = "0xeb6f92"
+white = "0xe0def4"
+yellow = "0xf6c177"
+
+[colors.cursor]
+cursor = "0x524f67"
+text = "0xe0def4"
+
+[colors.hints.end]
+background = "#1f1d2e"
+foreground = "#6e6a86"
+
+[colors.hints.start]
+background = "#1f1d2e"
+foreground = "#908caa"
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.normal]
+black = "0x26233a"
+blue = "0x9ccfd8"
+cyan = "0xebbcba"
+green = "0x31748f"
+magenta = "0xc4a7e7"
+red = "0xeb6f92"
+white = "0xe0def4"
+yellow = "0xf6c177"
+
+[colors.primary]
+background = "0x191724"
+foreground = "0xe0def4"
+
+[colors.selection]
+background = "0x403d52"
+text = "0xe0def4"
+
+[colors.vi_mode_cursor]
+cursor = "0x524f67"
+text = "0xe0def4"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "BlexMono Nerd Font Mono"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 3
+
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u000s"
+key = "W"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002,"
+key = "Comma"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u1"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u2"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u3"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u4"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u5"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u6"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u7"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u8"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u9"
+key = "Key9"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002L"
+key = "L"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u["
+key = "LBracket"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\up"
+key = "LBracket"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002\un"
+key = "RBracket"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002%"
+key = "N"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002\""
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002d"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002z"
+key = "Z"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002!"
+key = "T"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002g"
+key = "G"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[1;3A"
+key = "K"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[1;3B"
+key = "J"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[1;3D"
+key = "H"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[1;3C"
+key = "L"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[A"
+key = "K"
+mods = "Command|Option"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[B"
+key = "J"
+mods = "Command|Option"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[D"
+key = "H"
+mods = "Command|Option"
+
+[[keyboard.bindings]]
+chars = "\u0002\u001B[C"
+key = "L"
+mods = "Command|Option"
+
+[[keyboard.bindings]]
+chars = """
+\u001B:w
+"""
+key = "S"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001B[105;5u"
+key = "I"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command|Control"
+
+[shell]
+args = ["--login"]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+opacity = 0.9
+
+[window.dimensions]
+columns = 95
+lines = 45
+
+[window.padding]
+x = 18
+y = 12
