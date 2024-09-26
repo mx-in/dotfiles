@@ -26,6 +26,10 @@ local function get_python_path(workspace)
   return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
 end
 
+require 'lspconfig'.html.setup {
+  filetypes = { 'html', 'htmldjango' },
+}
+
 require 'lspconfig'.pyright.setup {
   on_attach = function()
   end,

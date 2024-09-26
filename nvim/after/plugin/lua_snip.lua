@@ -22,3 +22,5 @@ ls.add_snippets('all', {
     t("{cn('')}"),
   }),
 })
+
+ls.filetype_extend("htmldjango", { "html" })

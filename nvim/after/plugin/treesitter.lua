@@ -20,7 +20,9 @@ ts.setup {
     "html",
     "prisma",
     "python",
-    "yaml"
+    "yaml",
+    "elixir",
+    "htmldjango",
   },
 
   indent = {
