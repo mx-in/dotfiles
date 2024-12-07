@@ -68,7 +68,7 @@ key = "T"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u000s"
+chars = "\u0002s"
 key = "W"
 mods = "Command|Shift"
 
@@ -78,47 +78,47 @@ key = "Comma"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u1"
+chars = "\u00021"
 key = "Key1"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u2"
+chars = "\u00022"
 key = "Key2"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u3"
+chars = "\u00023"
 key = "Key3"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u4"
+chars = "\u00024"
 key = "Key4"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u5"
+chars = "\u00025"
 key = "Key5"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u6"
+chars = "\u00026"
 key = "Key6"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u7"
+chars = "\u00027"
 key = "Key7"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u8"
+chars = "\u00028"
 key = "Key8"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u9"
+chars = "\u00029"
 key = "Key9"
 mods = "Command"
 
@@ -128,18 +128,18 @@ key = "L"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\u["
+chars = "\u0002["
 key = "LBracket"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u0002\up"
-key = "LBracket"
+chars = "\u0002p"
+key = "<"
 mods = "Command|Shift"
 
 [[keyboard.bindings]]
-chars = "\u0002\un"
-key = "RBracket"
+chars = "\u0002n"
+key = ">"
 mods = "Command|Shift"
 
 [[keyboard.bindings]]
