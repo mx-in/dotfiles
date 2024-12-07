@@ -267,6 +267,7 @@ local plugins = {
     end
   },
 
+  { 'AndreM222/copilot-lualine' },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -275,6 +276,5 @@ local plugins = {
       require("copilot").setup({})
     end,
   },
-  { 'AndreM222/copilot-lualine' }
 }
 require('lazy').setup(plugins, {})
