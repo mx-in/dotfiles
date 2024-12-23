@@ -11,7 +11,7 @@ navbuddy.setup {
 lsp.preset("recommended")
 lsp.ensure_installed({
   'rust_analyzer',
-  'tsserver',
+  'ts_ls',
 })
 
 local cmp_nvim_lsp = require "cmp_nvim_lsp"
@@ -60,7 +60,7 @@ require('lspconfig').lua_ls.setup({
   }
 })
 
-require('lspconfig').tsserver.setup({
+require('lspconfig').ts_ls.setup({
   settings = {
     javascript = {
       inlayHints = {
