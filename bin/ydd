@@ -1,43 +1,43 @@
 #!/bin/bash
 
 function show_usage() {
-    echo "Usage:"
-    echo "  Download and cut YouTube audio:"
-    echo "     ydd <youtube_url> <start_seconds> <duration_seconds> <output_name>"
-    echo "     Example: ydd https://youtube.com/watch?v=xxx 30 60 my_song"
-    echo
-    echo "Notes:"
-    echo "  - Times are in seconds (e.g., 30 = 30 seconds, 90 = 1 minute 30 seconds)"
-    echo "  - Don't include .mp3 in the output name, it will be added automatically"
-    echo "  - After cutting, the audio will play for preview"
-    echo "  - You can adjust the cut times if needed after preview"
-    echo
-    echo "Tip: You can also use the 'cut' function directly in your scripts:"
-    echo "     cut <start_seconds> <duration_seconds> <input_file> <output_name>"
+  echo "Usage:"
+  echo "  Download and cut YouTube audio:"
+  echo "     ydd <youtube_url> <start_seconds> <duration_seconds> <output_name>"
+  echo "     Example: ydd https://youtube.com/watch?v=xxx 30 60 my_song"
+  echo
+  echo "Notes:"
+  echo "  - Times are in seconds (e.g., 30 = 30 seconds, 90 = 1 minute 30 seconds)"
+  echo "  - Don't include .mp3 in the output name, it will be added automatically"
+  echo "  - After cutting, the audio will play for preview"
+  echo "  - You can adjust the cut times if needed after preview"
+  echo
+  echo "Tip: You can also use the 'cut' function directly in your scripts:"
+  echo "     cut <start_seconds> <duration_seconds> <input_file> <output_name>"
 }
 
 function validate_seconds() {
-    local value=$1
-    local param_name=$2
-    if ! [[ "$value" =~ ^[0-9]+$ ]]; then
-        echo "Error: $param_name must be a positive number"
-        exit 1
-    fi
-    if [ "$value" -le 0 ]; then
-        echo "Error: $param_name must be a positive number"
-        exit 1
-    fi
+  local value=$1
+  local param_name=$2
+  if ! [[ "$value" =~ ^[0-9]+$ ]]; then
+    echo "Error: $param_name must be a positive number"
+    exit 1
+  fi
+  if [ "$value" -le 0 ]; then
+    echo "Error: $param_name must be a positive number"
+    exit 1
+  fi
 }
 
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-    show_usage
-    exit 0
+  show_usage
+  exit 0
 fi
 
 if [ $# -ne 4 ]; then
-    echo "Error: Incorrect number of arguments"
-    show_usage
-    exit 1
+  echo "Error: Incorrect number of arguments"
+  show_usage
+  exit 1
 fi
 
 validate_seconds "$2" "Start time"
@@ -45,29 +45,29 @@ validate_seconds "$3" "Duration"
 
 origin_file="$(dirname $4)/$(basename $4)_original"
 
-function yda() { 
-    echo "Downloading audio..."
+function yda() {
+  echo "Downloading audio..."
+  yt-dlp -x --audio-format mp3 --output "$origin_file.%(ext)s" $1
+  if [ ! -f "$origin_file.mp3" ]; then
+    echo "Download failed, retrying..."
     yt-dlp -x --audio-format mp3 --output "$origin_file.%(ext)s" $1
     if [ ! -f "$origin_file.mp3" ]; then
-        echo "Download failed, retrying..."
-        yt-dlp -x --audio-format mp3 --output "$origin_file.%(ext)s" $1
-        if [ ! -f "$origin_file.mp3" ]; then
-            echo "Download failed after retry. Please check the URL or your internet connection."
-            exit 1
-        fi
+      echo "Download failed after retry. Please check the URL or your internet connection."
+      exit 1
     fi
-    echo "Download completed successfully!"
+  fi
+  echo "Download completed successfully!"
 }
 
 function seconds_to_timestamp() {
-    local seconds=$1
-    printf "%02d:%02d:%02d\n" $(($seconds/3600)) $(($seconds%3600/60)) $(($seconds%60))
+  local seconds=$1
+  printf "%02d:%02d:%02d\n" $(($seconds / 3600)) $(($seconds % 3600 / 60)) $(($seconds % 60))
 }
 
 function cut() {
-    local start_timestamp=$(seconds_to_timestamp $1)
-    local duration_timestamp=$(seconds_to_timestamp $2)
-    ffmpeg -ss $start_timestamp -t $duration_timestamp -i $origin_file.mp3 $3.mp3
+  local start_timestamp=$(seconds_to_timestamp $1)
+  local duration_timestamp=$(seconds_to_timestamp $2)
+  ffmpeg -ss $start_timestamp -t $duration_timestamp -i $origin_file.mp3 $3.mp3
 }
 
 yda $1
@@ -75,27 +75,27 @@ cut $2 $3 $4
 echo "Playing ..."
 afplay "$4.mp3"
 while true; do
-    read -p "Is the cut result satisfactory? (yes/no): " answer
-    case $answer in
-        [Yy]* ) 
-            echo "Great! The file has been saved."
-            rm "$origin_file.mp3"
-            echo "Original file has been cleaned up."
-            break
-            ;;
-        [Nn]* ) 
-            read -p "Enter new start time in seconds [$2]: " new_start
-            new_start=${new_start:-$2}
-            validate_seconds "$new_start" "New start time"
-            read -p "Enter new duration in seconds [$3]: " new_duration
-            new_duration=${new_duration:-$3}
-            validate_seconds "$new_duration" "New duration"
-            cut "$new_start" "$new_duration" "$4"
-            echo "Playing ..."
-            afplay "$4.mp3"
-            ;;
-        * ) 
-            echo "Please answer yes or no."
-            ;;
-    esac
+  read -p "Is the cut result satisfactory? (yes/no): " answer
+  case $answer in
+  [Yy]*)
+    echo "Great! The file has been saved."
+    rm "$origin_file.mp3"
+    echo "Original file has been cleaned up."
+    break
+    ;;
+  [Nn]*)
+    read -p "Enter new start time in seconds [$2]: " new_start
+    new_start=${new_start:-$2}
+    validate_seconds "$new_start" "New start time"
+    read -p "Enter new duration in seconds [$3]: " new_duration
+    new_duration=${new_duration:-$3}
+    validate_seconds "$new_duration" "New duration"
+    cut "$new_start" "$new_duration" "$4"
+    echo "Playing ..."
+    afplay "$4.mp3"
+    ;;
+  *)
+    echo "Please answer yes or no."
+    ;;
+  esac
 done
