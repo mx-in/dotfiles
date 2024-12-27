@@ -1,0 +1,58 @@
+#!/bin/bash
+echo "Adding $1 to Anki..."
+file_path="$(readlink -f $1)"
+afplay $file_path
+
+function add_note {
+  JSON_STRING=$(jq -n \
+    --arg path "$1" \
+    --arg back_content "$2" \
+    --arg file_name "$(basename $1)" \
+    '{
+      "action": "addNote",
+      "version": 6,
+      "params": {
+          "note": {
+              "deckName": "Daily Dictation",
+              "modelName": "Basic",
+              "fields": {
+                  "Back": $back_content
+              },
+              "options": {
+                  "allowDuplicate": false,
+                  "duplicateScope": "deck",
+                  "duplicateScopeOptions": {
+                      "deckName": "Default",
+                      "checkChildren": false,
+                      "checkAllModels": false
+                  }
+              },
+              "tags": [
+                  "ydd"
+              ],
+              "audio": [{
+                  "filename": $file_name,
+                  "path": $path,
+                  "fields": [
+                      "Front"
+                  ]
+              }],
+          }
+      }
+  }')
+  echo $JSON_STRING
+  curl localhost:8765 -X POST -d "$JSON_STRING"
+}
+
+while true; do
+  read -p "Do you want to add this note to Anki? [y/n] " yn
+  case $yn in
+  [Yy]*)
+    read -p "Enter the back content: " back_content
+    add_note $file_path $back_content
+    break
+    ;;
+  [Nn]*) exit ;;
+  *) echo "Please answer yes or no." ;;
+  esac
+done
