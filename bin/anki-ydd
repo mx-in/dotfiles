@@ -1,13 +1,15 @@
 #!/bin/bash
 echo "Adding $1 to Anki..."
 file_path="$(readlink -f $1)"
-afplay $file_path
 
 function add_note {
-  JSON_STRING=$(jq -n \
-    --arg path "$1" \
+  file_path=$(basename $1)
+  dd_name=${file_path%%.*}
+  echo -e "${file_path%%.*}\n$2"
+  JSON_STRING=$(jq -n -r -s --arg path "$1" \
     --arg back_content "$2" \
     --arg file_name "$(basename $1)" \
+    --arg dd_name "$dd_name" \
     '{
       "action": "addNote",
       "version": 6,
@@ -16,13 +18,14 @@ function add_note {
               "deckName": "Daily Dictation",
               "modelName": "Basic",
               "fields": {
+                  "Front": $dd_name,
                   "Back": $back_content
               },
               "options": {
                   "allowDuplicate": false,
                   "duplicateScope": "deck",
                   "duplicateScopeOptions": {
-                      "deckName": "Default",
+                      "deckName": "Daily Dictation",
                       "checkChildren": false,
                       "checkAllModels": false
                   }
@@ -44,12 +47,24 @@ function add_note {
   curl localhost:8765 -X POST -d "$JSON_STRING"
 }
 
+function read_back_content {
+  read -r -p "Enter the back content: " back_content
+  read -p "Please confirm the back content: $back_content [y/n] " yn
+  case $yn in
+  [Yy]*) echo $back_content ;;
+  [Nn]*) read_back_content ;;
+  *) echo "Please answer yes or no." ;;
+  esac
+}
+
+afplay $file_path
 while true; do
   read -p "Do you want to add this note to Anki? [y/n] " yn
   case $yn in
   [Yy]*)
-    read -p "Enter the back content: " back_content
-    add_note $file_path $back_content
+    back_content=$(read_back_content)
+    test -z "$back_content" && echo "Back content cannot be empty." && exit 1
+    add_note "$file_path" "$back_content"
     break
     ;;
   [Nn]*) exit ;;
