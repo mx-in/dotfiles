@@ -1,6 +1,16 @@
 #!/bin/bash
 echo "Adding $1 to Anki..."
-file_path="$(readlink -f $1)"
+if [ -e "$1" ]; then
+    file_path="$(readlink -f $1)"
+else
+    # Convert relative path to absolute using current directory
+    file_path="$(pwd)/${1#./}"
+fi
+
+if [[ "$(basename "${file_path}")" != *.* ]]; then
+    file_path="${file_path}.mp3"
+fi
+echo "file path: $file_path"
 
 function add_note {
   file_path=$(basename $1)
