@@ -48,9 +48,9 @@ function setup_aliases
     abbr --add 'git?' copilot_git-assist
     abbr --add 'gh?' copilot_gh-assist
 
-    #use exa to replace ll, la
-    if type -q exa
-        alias ll "exa -l -g --icons"
+    #use eza to replace ll, la
+    if type -q eza
+        alias ll "eza -l -g --icons"
         alias lla "ll -a"
     end
 
