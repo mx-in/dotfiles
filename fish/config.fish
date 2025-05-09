@@ -10,9 +10,9 @@ function init_tools
 end
 
 function proxy_setting
-    set -x -g https_proxy http://127.0.0.1:6152
-    set -x -g http_proxy http://127.0.0.1:6152
-    set -x -g all_proxy socks5://127.0.0.1:6153
+    set -x -g https_proxy http://127.0.0.1:8234
+    set -x -g http_proxy http://127.0.0.1:8234
+    set -x -g all_proxy socks5://127.0.0.1:8235
 end
 
 function fish_setup
