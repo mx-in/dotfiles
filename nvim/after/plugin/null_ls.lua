@@ -18,8 +18,17 @@ null_ls.setup {
     null_ls.builtins.formatting.djlint,
     null_ls.builtins.diagnostics.djlint,
     null_ls.builtins.formatting.black,
-    null_ls.builtins.diagnostics.eslint.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})'
+    require("none-ls.diagnostics.eslint").with({
+      diagnostics_format = '[eslint] #{m}\n(#{c})',
+      name = "eslint_d",
+      meta = {
+        url = "https://github.com/mantoni/eslint_d.js/",
+        description = "just like eslint, but runs as a background service",
+        notes = {
+          "once runs it's not about null_ls you need to run eslint_d stop to stop the service",
+        },
+      },
+      command = "eslint_d",
     }),
     null_ls.builtins.diagnostics.fish
   },

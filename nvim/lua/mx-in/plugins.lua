@@ -156,7 +156,8 @@ local plugins = {
 
   -- LSP null-ls
   {
-    'jose-elias-alvarez/null-ls.nvim'
+    'nvimtools/none-ls.nvim',
+    dependencies = { 'nvimtools/none-ls-extras.nvim' },
   },
 
   -- Zen Mode
@@ -229,13 +230,6 @@ local plugins = {
     end,
     lazy = true,
   },
-  {
-    'lvimuser/lsp-inlayhints.nvim',
-    branch = 'anticonceal',
-    event = { 'BufReadPre', 'BufNewFile' },
-    config = true,
-  }
-  ,
   {
     'linux-cultist/venv-selector.nvim',
     dependencies = { 'neovim/nvim-lspconfig', 'nvim-telescope/telescope.nvim', 'mfussenegger/nvim-dap-python' },
