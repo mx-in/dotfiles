@@ -60,6 +60,10 @@ function setup_aliases
     --cache=$HOME/.npm/.cache/cnpm \
     --disturl=https://npm.taobao.org/dist \
     --userconfig=$HOME/.cnpmrc"
+
+    # GitHub Copilot shortcuts
+    alias expl "gh copilot explain"
+    alias sugg "gh copilot suggest"
 end
 
 
