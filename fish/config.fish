@@ -44,10 +44,6 @@ function setup_aliases
     alias vim "nvim"
     alias g git
     alias top btop
-    abbr --add '??' copilot_what-the-shell
-    abbr --add 'git?' copilot_git-assist
-    abbr --add 'gh?' copilot_gh-assist
-
     #use eza to replace ll, la
     if type -q eza
         alias ll "eza -l -g --icons"
