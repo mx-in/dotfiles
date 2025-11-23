@@ -9,10 +9,28 @@ function init_tools
     status --is-interactive; and pyenv virtualenv-init - | source
 end
 
-function proxy_setting
-    set -x -g https_proxy http://127.0.0.1:8234
-    set -x -g http_proxy http://127.0.0.1:8234
-    set -x -g all_proxy socks5://127.0.0.1:8235
+function proxy_apply --argument-names profile
+    switch $profile
+    case clash
+        set -x -g http_proxy  http://127.0.0.1:7890
+        set -x -g https_proxy http://127.0.0.1:7890
+        set -x -g all_proxy   socks5://127.0.0.1:7890
+        git config --global --unset http.proxy
+        git config --global --unset https.proxy
+    case surge
+        set -x -g http_proxy  http://127.0.0.1:8234
+        set -x -g https_proxy http://127.0.0.1:8234
+        set -x -g all_proxy   socks5://127.0.0.1:8235
+        git config --global http.proxy  http://127.0.0.1:8234
+        git config --global https.proxy http://127.0.0.1:8234
+    case off
+        set -e http_proxy https_proxy all_proxy
+        git config --global --unset http.proxy
+        git config --global --unset https.proxy
+    case '*'
+        echo "Unknown proxy profile '$profile' (use clash|surge|off)" >&2
+        return 1
+    end
 end
 
 function fish_setup
@@ -76,8 +94,23 @@ function key_binding
     bind \ct "fish -c \"tmux_smart_session --init \$PWD\""
 end
 
+function proxy_switch --argument-names profile
+    if test -z "$profile"
+        echo "Usage: proxy_switch {clash|surge|off}" >&2
+        return 1
+    end
+
+    proxy_apply $profile; or return $status
+    set -U proxy_profile $profile
+end
+
+# Remember the last proxy profile and apply it on every new shell.
+if not set -q proxy_profile
+    set -U proxy_profile clash
+end
+
 init_tools
-proxy_setting
+proxy_apply $proxy_profile
 fish_setup
 add_path
 git_config

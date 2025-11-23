@@ -63,7 +63,6 @@
 	process = git-lfs filter-process
 
 [http]
-	proxy = http://127.0.0.1:8234
 	postBuffer = 157286400
 [credential "https://github.com"]
 	helper = 
@@ -71,5 +70,3 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
-[https]
-	proxy = http://127.0.0.1:8234
