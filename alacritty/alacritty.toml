@@ -62,161 +62,201 @@ style = "Regular"
 x = 0
 y = 3
 
+# ===================================================================
+# TMUX KEYBINDINGS (tmux prefix: Ctrl+b = \u0002)
+# ===================================================================
+
+# Create new window: Cmd+T → Ctrl+b c
 [[keyboard.bindings]]
 chars = "\u0002c"
 key = "T"
 mods = "Command"
 
+# Interactive session switch: Cmd+Shift+W → Ctrl+b s
 [[keyboard.bindings]]
 chars = "\u0002s"
 key = "W"
 mods = "Command|Shift"
 
+# Rename current window: Cmd+Comma → Ctrl+b ,
 [[keyboard.bindings]]
 chars = "\u0002,"
 key = "Comma"
 mods = "Command"
 
+# Select window 1: Cmd+1 → Ctrl+b 1
 [[keyboard.bindings]]
 chars = "\u00021"
 key = "Key1"
 mods = "Command"
 
+# Select window 2: Cmd+2 → Ctrl+b 2
 [[keyboard.bindings]]
 chars = "\u00022"
 key = "Key2"
 mods = "Command"
 
+# Select window 3: Cmd+3 → Ctrl+b 3
 [[keyboard.bindings]]
 chars = "\u00023"
 key = "Key3"
 mods = "Command"
 
+# Select window 4: Cmd+4 → Ctrl+b 4
 [[keyboard.bindings]]
 chars = "\u00024"
 key = "Key4"
 mods = "Command"
 
+# Select window 5: Cmd+5 → Ctrl+b 5
 [[keyboard.bindings]]
 chars = "\u00025"
 key = "Key5"
 mods = "Command"
 
+# Select window 6: Cmd+6 → Ctrl+b 6
 [[keyboard.bindings]]
 chars = "\u00026"
 key = "Key6"
 mods = "Command"
 
+# Select window 7: Cmd+7 → Ctrl+b 7
 [[keyboard.bindings]]
 chars = "\u00027"
 key = "Key7"
 mods = "Command"
 
+# Select window 8: Cmd+8 → Ctrl+b 8
 [[keyboard.bindings]]
 chars = "\u00028"
 key = "Key8"
 mods = "Command"
 
+# Select window 9: Cmd+9 → Ctrl+b 9
 [[keyboard.bindings]]
 chars = "\u00029"
 key = "Key9"
 mods = "Command"
 
+# Switch to last session: Cmd+L → Ctrl+b L
 [[keyboard.bindings]]
 chars = "\u0002L"
 key = "L"
 mods = "Command"
 
+# Enter copy mode: Cmd+[ → Ctrl+b [
 [[keyboard.bindings]]
 chars = "\u0002["
 key = "LBracket"
 mods = "Command"
 
+# Change to previous window: Cmd+Shift+< → Ctrl+b p
 [[keyboard.bindings]]
 chars = "\u0002p"
 key = "<"
 mods = "Command|Shift"
 
+# Change to next window: Cmd+Shift+> → Ctrl+b n
 [[keyboard.bindings]]
 chars = "\u0002n"
 key = ">"
 mods = "Command|Shift"
 
+# Split pane vertically (left/right): Cmd+Shift+N → Ctrl+b %
 [[keyboard.bindings]]
 chars = "\u0002%"
 key = "N"
 mods = "Command|Shift"
 
+# Split pane horizontally (top/bottom): Cmd+N → Ctrl+b "
 [[keyboard.bindings]]
 chars = "\u0002\""
 key = "N"
 mods = "Command"
 
+# Detach from tmux session: Cmd+Q → Ctrl+b d
 [[keyboard.bindings]]
 chars = "\u0002d"
 key = "Q"
 mods = "Command"
 
+# Kill current pane/window: Cmd+W → Ctrl+b x
 [[keyboard.bindings]]
 chars = "\u0002x"
 key = "W"
 mods = "Command"
 
+# Toggle pane zoom: Cmd+Z → Ctrl+b z
 [[keyboard.bindings]]
 chars = "\u0002z"
 key = "Z"
 mods = "Command"
 
+# Break pane into new window: Cmd+Shift+T → Ctrl+b !
 [[keyboard.bindings]]
 chars = "\u0002!"
 key = "T"
 mods = "Command|Shift"
 
+# Open lazygit popup: Cmd+G → Ctrl+b g
 [[keyboard.bindings]]
 chars = "\u0002g"
 key = "G"
 mods = "Command"
 
+# Resize pane up: Cmd+Shift+K → Ctrl+b + resize up
 [[keyboard.bindings]]
 chars = "\u0002\u001B[1;3A"
 key = "K"
 mods = "Command|Shift"
 
+# Resize pane down: Cmd+Shift+J → Ctrl+b + resize down
 [[keyboard.bindings]]
 chars = "\u0002\u001B[1;3B"
 key = "J"
 mods = "Command|Shift"
 
+# Resize pane left: Cmd+Shift+H → Ctrl+b + resize left
 [[keyboard.bindings]]
 chars = "\u0002\u001B[1;3D"
 key = "H"
 mods = "Command|Shift"
 
+# Resize pane right: Cmd+Shift+L → Ctrl+b + resize right
 [[keyboard.bindings]]
 chars = "\u0002\u001B[1;3C"
 key = "L"
 mods = "Command|Shift"
 
+# Navigate to pane above: Cmd+Option+K → Ctrl+b + up arrow
 [[keyboard.bindings]]
 chars = "\u0002\u001B[A"
 key = "K"
 mods = "Command|Option"
 
+# Navigate to pane below: Cmd+Option+J → Ctrl+b + down arrow
 [[keyboard.bindings]]
 chars = "\u0002\u001B[B"
 key = "J"
 mods = "Command|Option"
 
+# Navigate to pane left: Cmd+Option+H → Ctrl+b + left arrow
 [[keyboard.bindings]]
 chars = "\u0002\u001B[D"
 key = "H"
 mods = "Command|Option"
 
+# Navigate to pane right: Cmd+Option+L → Ctrl+b + right arrow
 [[keyboard.bindings]]
 chars = "\u0002\u001B[C"
 key = "L"
 mods = "Command|Option"
 
+# ===================================================================
+# VIM / NEOWIM KEYBINDINGS
+# ===================================================================
+
+# Save in neovim: Cmd+S → Esc :w Enter
 [[keyboard.bindings]]
 chars = """
 \u001B:w
@@ -224,11 +264,17 @@ chars = """
 key = "S"
 mods = "Command"
 
+# Ctrl+i (for vim jump list navigation)
 [[keyboard.bindings]]
 chars = "\u001B[105;5u"
 key = "I"
 mods = "Control"
 
+# ===================================================================
+# ALACRITTY KEYBINDINGS
+# ===================================================================
+
+# Spawn new Alacritty instance: Cmd+Ctrl+N
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
